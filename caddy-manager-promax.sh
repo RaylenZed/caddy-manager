@@ -1086,7 +1086,7 @@ check_version() {
 
     # 检查最新版本
     local latest_version
-    latest_version=$(curl -s "https://api.github.com/repos/yourusername/caddy-manager/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+    latest_version=$(curl -s "https://api.github.com/repos/raylenzed/caddy-manager/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
 
     if [[ -n $latest_version ]]; then
         if [[ $latest_version != "$current_version" ]]; then
@@ -1112,7 +1112,7 @@ update_script() {
     cp "$0" "$backup_file"
 
     # 下载新版本
-    if curl -o "$0" -L "https://raw.githubusercontent.com/yourusername/caddy-manager/main/caddy-manager.sh"; then
+    if curl -o "$0" -L "https://raw.githubusercontent.com/raylenzed/caddy-manager/main/caddy-manager.sh"; then
         chmod +x "$0"
         log_info "更新成功,请重新运行脚本"
         exit 0
@@ -1391,8 +1391,8 @@ Caddy 管理脚本 v${SCRIPT_VERSION}
 3. monitor all 建议在 screen 或 tmux 中运行
 4. 完整的日志文件位于 ${CADDY_LOG}
 
-项目地址: https://github.com/yourusername/caddy-manager
-问题反馈: https://github.com/yourusername/caddy-manager/issues
+项目地址: https://github.com/raylenzed/caddy-manager
+问题反馈: https://github.com/raylenzed/caddy-manager/issues
 
 EOF
 }
